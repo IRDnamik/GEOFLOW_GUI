@@ -38,11 +38,13 @@ class MainPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(),
-              diagram.buildBox('Input', () {}),
+              diagram.buildBox('Input', () {}), // open file explorer
               const Spacer(),
-              diagram.buildBox('Geoflow', () {}),
+              diagram.buildBox(
+                  'Geoflow', () {}), // open page to generate json file
               const Spacer(),
-              diagram.buildBox('Output', () {}),
+              diagram.buildBox(
+                  'Output', () {}), // open page to set url and password
               const Spacer(),
             ],
           ),
