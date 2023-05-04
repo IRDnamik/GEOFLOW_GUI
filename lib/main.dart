@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geoflow_gui/services/process.dart';
 import './ui/color.dart';
 import './ui/diagram';
 
@@ -14,7 +15,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MainPage extends StatelessWidget {
-  var diagram = Diagramme();
+  final diagram = Diagramme();
+  final process = Process();
+  String? selectedDir;
 
   MainPage({super.key});
 
@@ -38,8 +41,12 @@ class MainPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(),
-              diagram.buildBox('Input', () {}), // open file explorer
+              diagram.buildBox('Input', () {
+                process.selectDirectory();
+              }), // open file explorer
               const Spacer(),
+              Container(),
+              const SizedBox(height: 20),
               diagram.buildBox(
                   'Geoflow', () {}), // open page to generate json file
               const Spacer(),
