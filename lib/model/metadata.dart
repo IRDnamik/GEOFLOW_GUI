@@ -2,18 +2,18 @@ class Metadata {
   final String identifier;
   final String title;
   final String description;
-  final String subject;
+  final String? subject;
   final String creator;
-  final String date;
-  final String type;
-  final String language;
-  final String spatialCoverage;
+  final String? date;
+  final String? type;
+  final String? language;
+  final String? spatialCoverage;
   final String temporalCoverage;
-  final String format;
-  final String relation;
-  final String rights;
-  final String provenance;
-  final dynamic data;
+  final String? format;
+  final String? relation;
+  final String? rights;
+  final String? provenance;
+  final String? data;
 
   Metadata(
     this.identifier,

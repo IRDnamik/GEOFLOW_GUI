@@ -42,7 +42,27 @@ class MainPage extends StatelessWidget {
             children: [
               const Spacer(),
               diagram.buildBox('Input', () {
-                selectedDir = process.selectDirectory();
+                showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text('Select Data sources'),
+                    actions: <Widget>[
+                      GestureDetector(
+                          onTap: () {},
+                          child: Image.asset('assets/pgsql.png',
+                              width: 128, height: 128)),
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, 'Cancel'),
+                        child: const Text('Cancel'),
+                      ),
+                      // TextButton(
+                      //   onPressed: () => Navigator.pop(context, 'OK'),
+                      //   child: const Text('OK'),
+                      // ),
+                    ],
+                  ),
+                );
+                // selectedDir = process.selectDirectory();
               }), // open file explorer
               const Spacer(),
               Align(
@@ -61,3 +81,83 @@ class MainPage extends StatelessWidget {
     );
   }
 }
+
+// showDialog(
+//   context: context,
+//   builder: (BuildContext context) {
+//     String dataSource = "";
+//     bool searchOnLocal = false;
+//     return AlertDialog(
+//       title: Text("Source de données"),
+//       content: Column(
+//         mainAxisSize: MainAxisSize.min,
+//         children: [
+//           Text("Comment souhaitez-vous accéder à vos données ?"),
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceAround,
+//             children: [
+//               ElevatedButton(
+//                 onPressed: () {
+//                   setState(() {
+//                     searchOnLocal = true;
+//                   });
+//                 },
+//                 child: Text("Rechercher sur le poste"),
+//               ),
+//               ElevatedButton(
+//                 onPressed: () {
+//                   setState(() {
+//                     searchOnLocal = false;
+//                   });
+//                 },
+//                 child: Text("Saisir l'adresse du serveur"),
+//               ),
+//             ],
+//           ),
+//           SizedBox(height: 20),
+//           searchOnLocal
+//               ? Column(
+//                   mainAxisSize: MainAxisSize.min,
+//                   children: [
+//                     Text("Veuillez sélectionner le fichier contenant vos données"),
+//                     ElevatedButton(
+//                       onPressed: () async {
+//                         var filePickerResult =
+//                             await FilePicker.platform.pickFiles();
+//                         if (filePickerResult != null) {
+//                           setState(() {
+//                             dataSource = filePickerResult.files.single.path!;
+//                           });
+//                         }
+//                       },
+//                       child: Text("Sélectionner un fichier"),
+//                     ),
+//                   ],
+//                 )
+//               : Column(
+//                   mainAxisSize: MainAxisSize.min,
+//                   children: [
+//                     Text("Veuillez saisir l'adresse du serveur"),
+//                     TextField(
+//                       onChanged: (value) {
+//                         dataSource = value;
+//                       },
+//                       decoration: InputDecoration(
+//                         hintText: "Adresse du serveur",
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//         ],
+//       ),
+//       actions: [
+//         ElevatedButton(
+//           onPressed: () {
+//             Navigator.of(context).pop(dataSource);
+//           },
+//           child: Text("Valider"),
+//         ),
+//       ],
+//     );
+//   },
+// );
