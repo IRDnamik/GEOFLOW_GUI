@@ -10,14 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Flow Graph Example', home: MainPage());
+    return MaterialApp(title: 'Geoflow input generator', home: MainPage());
   }
 }
 
 class MainPage extends StatelessWidget {
   final diagram = Diagramme();
   final process = Process();
-  String? selectedDir;
+  var selectedDir;
 
   MainPage({super.key});
 
@@ -42,13 +42,14 @@ class MainPage extends StatelessWidget {
             children: [
               const Spacer(),
               diagram.buildBox('Input', () {
-                process.selectDirectory();
+                selectedDir = process.selectDirectory();
               }), // open file explorer
               const Spacer(),
-              Container(),
-              const SizedBox(height: 20),
-              diagram.buildBox(
-                  'Geoflow', () {}), // open page to generate json file
+              Align(
+                  alignment: const Alignment(0, 0.1),
+                  child: Container(
+                    child: diagram.buildBox('Geoflow', () {}),
+                  )), // open page to generate json file
               const Spacer(),
               diagram.buildBox(
                   'Output', () {}), // open page to set url and password
