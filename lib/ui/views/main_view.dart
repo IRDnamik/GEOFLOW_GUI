@@ -1,15 +1,21 @@
+/*The code in this project is licensed under the Creative Commons license and was developed by Namik SCHERZL*/
+
 import 'package:geoflow_gui/services/process.dart';
 import 'package:flutter/material.dart';
 import 'package:geoflow_gui/ui/color.dart';
 
 import '../diagram';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
+  MainPage({super.key});
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
   final diagram = Diagramme();
   final process = Process();
-  var selectedDir;
-
-  MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
