@@ -1,0 +1,1 @@
+/*The code in this project is licensed under the Creative Commons license and was developed by Namik SCHERZL*/

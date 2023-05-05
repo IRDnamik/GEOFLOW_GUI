@@ -3,8 +3,8 @@
 import 'package:geoflow_gui/services/process.dart';
 import 'package:flutter/material.dart';
 import 'package:geoflow_gui/ui/color.dart';
-
-import '../diagram';
+import 'package:geoflow_gui/ui/views/datasourcedialog_view.dart';
+import '../reusable/diagram.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({super.key});
@@ -15,7 +15,6 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final diagram = Diagramme();
-  final process = Process();
 
   @override
   Widget build(BuildContext context) {
@@ -38,30 +37,10 @@ class _MainPageState extends State<MainPage> {
             children: [
               const Spacer(),
               diagram.buildBox('Input', () {
-                showDialog<String>(
-                  context: context,
-                  builder: (BuildContext context) => AlertDialog(
-                    title: const Text('Select Data sources'),
-                    actions: <Widget>[
-                      GestureDetector(
-                          onTap: () {}, // redirect  to pick directory
-                          child: Image.asset('assets/pgsql.png',
-                              width: 128, height: 128)),
-                      GestureDetector(
-                          onTap: () {}, // redirect  to DB connection
-                          child: Image.asset('assets/pgsql.png',
-                              width: 128, height: 128)),
-                      TextButton(
-                        onPressed: () => Navigator.pop(context, 'Cancel'),
-                        child: const Text('Cancel'),
-                      ),
-                      // TextButton(
-                      //   onPressed: () => Navigator.pop(context, 'OK'),
-                      //   child: const Text('OK'),
-                      // ),
-                    ],
-                  ),
-                );
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) => DatasourceDialog());
+
                 // selectedDir = process.selectDirectory();
               }), // open file explorer
               const Spacer(),
