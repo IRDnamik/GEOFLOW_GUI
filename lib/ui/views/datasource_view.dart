@@ -44,7 +44,7 @@ class _DatasourceDialogState extends State<DatasourceDialog> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
-                  DatasourceButton(picture: 'files', size: 64, buttonLabel: 'directory'),
+                  DatasourceButton(picture: 'files', size: 64, buttonLabel: 'Directory'),
                   DatasourceButton(picture: 'gdrive', size: 58, buttonLabel: "Google Drive"),
                   DatasourceButton(picture: 'pgsql', size: 80, buttonLabel: "Posgresql \nDatabase")
                 ],

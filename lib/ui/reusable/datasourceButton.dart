@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geoflow_gui/extension/string.dart';
 
 class DatasourceButton extends StatelessWidget {
   final String picture;
@@ -18,10 +19,7 @@ class DatasourceButton extends StatelessWidget {
         onTap: () {}, // redirect  to pick directory
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset('assets/$picture.png', width: size, height: size),
-            Text(buttonLabel)
-          ],
+          children: [Image.asset('assets/$picture.png', width: size, height: size), Text(buttonLabel.capitalize())],
         ));
   }
 }
