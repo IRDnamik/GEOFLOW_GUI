@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:geoflow_gui/ui/views/main_view.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

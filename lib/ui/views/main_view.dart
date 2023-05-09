@@ -3,7 +3,7 @@
 import 'package:geoflow_gui/services/process.dart';
 import 'package:flutter/material.dart';
 import 'package:geoflow_gui/ui/color.dart';
-import 'package:geoflow_gui/ui/views/datasourcedialog_view.dart';
+import 'package:geoflow_gui/ui/views/datasource_view.dart';
 import '../reusable/diagram.dart';
 
 class MainPage extends StatefulWidget {

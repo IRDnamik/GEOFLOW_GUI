@@ -33,14 +33,23 @@ class DatabaseManager {
             password TEXT
           )
         ');
+
+        await db.execute('
+          CREATE TABLE gdrive (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            email TEXT,
+            password TEXT
+          )
+        ');
       },
     );
   }
 
-  Future<void> insertDbsetting(Dbsetting dbsetting) async {
+  Future<void> insertDbsetting(Dbsetting? dbsetting, GdriveSetting? gdrive) async {
     final db = await database;
 
-    await db.insert(
+    if(dbsetting != null){
+      await db.insert(
       'dbsettings',
       {
         'databaseName': dbsetting.databaseName,
@@ -49,6 +58,19 @@ class DatabaseManager {
         'password': dbsetting.dbuser
       },
       conflictAlgorithm: ConflictAlgorithm.replace,
+    );}
+    else if (gdrive!= null){
+      await db.insert(
+      'gdrive',
+      {
+        'databaseName': dbsetting.databaseName,
+        'host': dbsetting.host,
+        'dbuser': dbsetting.dbuser,
+        'password': dbsetting.dbuser
+      },
+      conflictAlgorithm: ConflictAlgorithm.replace,
     );
+    }
+
   }
 }
