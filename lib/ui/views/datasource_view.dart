@@ -12,7 +12,6 @@ class DatasourceDialog extends StatefulWidget {
 
 class _DatasourceDialogState extends State<DatasourceDialog> {
   final process = Process();
-  final bool _isHovered = false;
 
   @override
   Widget build(BuildContext context) {

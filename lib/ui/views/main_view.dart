@@ -25,11 +25,7 @@ class _MainPageState extends State<MainPage> {
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [
-                MyThemeColor.darkGrey,
-                MyThemeColor.darkViolet,
-                MyThemeColor.darkGrey
-              ]),
+              colors: [MyThemeColor.darkGrey, MyThemeColor.darkViolet, MyThemeColor.darkGrey]),
         ),
         child: Center(
           child: Row(
@@ -37,11 +33,7 @@ class _MainPageState extends State<MainPage> {
             children: [
               const Spacer(),
               diagram.buildBox('Input', () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) => DatasourceDialog());
-
-                // selectedDir = process.selectDirectory();
+                showDialog(context: context, builder: (BuildContext context) => const DatasourceDialog());
               }), // open file explorer
               const Spacer(),
               Align(
@@ -50,8 +42,7 @@ class _MainPageState extends State<MainPage> {
                     child: diagram.buildBox('Geoflow', () {}),
                   )), // open page to generate json file
               const Spacer(),
-              diagram.buildBox(
-                  'Output', () {}), // open page to set url and password
+              diagram.buildBox('Output', () {}), // open page to set url and password
               const Spacer(),
             ],
           ),
