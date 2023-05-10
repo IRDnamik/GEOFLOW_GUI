@@ -28,11 +28,14 @@ class DatasourceButton extends StatelessWidget {
               break;
             case "Google Drive":
               // redirect to google view settings
-              showDialog(context: context, builder: (BuildContext context) => const ConnectionSettingsView());
+              showDialog(
+                  context: context, builder: (BuildContext context) => const ConnectionSettingsView("Google Drive"));
               break;
             case "Posgresql \nDatabase":
               // redirect to db settings view
-              showDialog(context: context, builder: (BuildContext context) => const ConnectionSettingsView());
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) => const ConnectionSettingsView("Posgresql \nDatabase"));
               break;
           }
         }, // redirect  to pick directory

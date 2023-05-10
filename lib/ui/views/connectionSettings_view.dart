@@ -1,18 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:geoflow_gui/model/dbsettings.dart';
-
-import '../subviews/addconnection.dart';
+import '../subviews/driveConnection.dart';
+import '../subviews/pgsqlConnection.dart';
 
 class ConnectionSettingsView extends StatefulWidget {
-  const ConnectionSettingsView({super.key});
+  final String dataSource;
+  const ConnectionSettingsView(this.dataSource, {super.key});
 
   @override
   State<ConnectionSettingsView> createState() => _ConnectionSettingsViewState();
 }
 
 class _ConnectionSettingsViewState extends State<ConnectionSettingsView> {
+  connectionTypeWidget() {
+    switch (widget.dataSource) {
+      case "Google Drive":
+        return const NewDriveConnection();
+
+      case "Posgresql \nDatabase":
+        return const NewPgsqlConnection();
+    }
+  }
+
+  // savedConnectionsWidget() {
+  //   switch (widget.dataSource) {
+  //     case "Google Drive":
+  //       return const SavedDriveConnection();
+
+  //     case "Posgresql \nDatabase":
+  //       return const SavedPgsqlConnection();
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -24,10 +42,9 @@ class _ConnectionSettingsViewState extends State<ConnectionSettingsView> {
         child: Column(
           children: [
             // first block is for adding a news connection
-            AddConnectionInput<GdriveSetting>()
+            connectionTypeWidget(),
             // second block list existant connections
-            // listview of mail or db
-            // SelectConnection()
+            // savedConnectionsWidget()
           ],
         ),
       ),
