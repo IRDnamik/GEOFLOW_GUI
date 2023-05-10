@@ -14,10 +14,10 @@ class _ConnectionSettingsViewState extends State<ConnectionSettingsView> {
   connectionTypeWidget() {
     switch (widget.dataSource) {
       case "Google Drive":
-        return const NewDriveConnection();
+        return NewDriveConnection();
 
       case "Posgresql \nDatabase":
-        return const NewPgsqlConnection();
+        return NewPgsqlConnection();
     }
   }
 
@@ -38,6 +38,7 @@ class _ConnectionSettingsViewState extends State<ConnectionSettingsView> {
       elevation: 0.0,
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       child: Container(
+        constraints: BoxConstraints(maxHeight: 500, maxWidth: 800),
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
