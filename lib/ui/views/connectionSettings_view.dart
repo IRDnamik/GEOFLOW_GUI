@@ -17,7 +17,7 @@ class _ConnectionSettingsViewState extends State<ConnectionSettingsView> {
         return NewDriveConnection();
 
       case "Posgresql \nDatabase":
-        return NewPgsqlConnection();
+      // return NewPgsqlConnection();
     }
   }
 

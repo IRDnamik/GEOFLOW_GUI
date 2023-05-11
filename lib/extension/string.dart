@@ -4,7 +4,7 @@ extension StringExtension on String {
   }
 
   bool get isValidEmail {
-    final emailRegExp = RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+@gmail\.com$");
+    final emailRegExp = RegExp(r"^[a-zA-Z0-9.]+@gmail\.com$");
     return emailRegExp.hasMatch(this);
   }
 
