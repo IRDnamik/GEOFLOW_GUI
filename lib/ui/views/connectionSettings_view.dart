@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../subviews/driveConnection.dart';
 import '../subviews/pgsqlConnection.dart';
+import '../subviews/savedDriveConnection.dart';
 
 class ConnectionSettingsView extends StatefulWidget {
   final String dataSource;
@@ -14,22 +15,22 @@ class _ConnectionSettingsViewState extends State<ConnectionSettingsView> {
   connectionTypeWidget() {
     switch (widget.dataSource) {
       case "Google Drive":
-        return NewDriveConnection();
+        return const NewDriveConnection();
 
       case "Posgresql \nDatabase":
-      // return NewPgsqlConnection();
+        return const NewPgsqlConnection();
     }
   }
 
-  // savedConnectionsWidget() {
-  //   switch (widget.dataSource) {
-  //     case "Google Drive":
-  //       return const SavedDriveConnection();
+  savedConnectionsWidget() {
+    switch (widget.dataSource) {
+      case "Google Drive":
+        return SavedDriveConnection();
 
-  //     case "Posgresql \nDatabase":
-  //       return const SavedPgsqlConnection();
-  //   }
-  // }
+      // case "Posgresql \nDatabase":
+      // return const SavedPgsqlConnection();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,7 @@ class _ConnectionSettingsViewState extends State<ConnectionSettingsView> {
             // first block is for adding a news connection
             connectionTypeWidget(),
             // second block list existant connections
-            // savedConnectionsWidget()
+            savedConnectionsWidget()
           ],
         ),
       ),

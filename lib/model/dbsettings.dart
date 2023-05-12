@@ -17,7 +17,6 @@ class DbSetting {
 
 class GdriveSetting {
   final String email;
-  final String? password;
 
-  GdriveSetting(this.email, this.password);
+  GdriveSetting(this.email);
 }
