@@ -40,7 +40,7 @@ class _NewPgsqlConnectionState extends State<NewPgsqlConnection> {
                 label: "Database name :",
                 preLabel: "Database name",
                 validator: (value) {
-                  return errorType.checkInput(value);
+                  return errorType.checkDB(value);
                 },
                 onSaved: (value) {
                   setState(() {
@@ -51,7 +51,7 @@ class _NewPgsqlConnectionState extends State<NewPgsqlConnection> {
                 label: "Host :",
                 preLabel: "Adress of your postgres server",
                 validator: (value) {
-                  return errorType.checkInput(value);
+                  return errorType.checkDB(value);
                 },
                 onSaved: (value) {
                   setState(() {
@@ -62,7 +62,7 @@ class _NewPgsqlConnectionState extends State<NewPgsqlConnection> {
                 label: "Port :",
                 preLabel: "Database port",
                 validator: (value) {
-                  return errorType.checkInput(value);
+                  return errorType.checkDB(value);
                 },
                 onSaved: (value) {
                   setState(() {
@@ -73,7 +73,7 @@ class _NewPgsqlConnectionState extends State<NewPgsqlConnection> {
                 label: "User :",
                 preLabel: "Give user with Role having create permission",
                 validator: (value) {
-                  return errorType.checkInput(value);
+                  return errorType.checkDB(value);
                 },
                 onSaved: (value) {
                   setState(() {
@@ -84,7 +84,7 @@ class _NewPgsqlConnectionState extends State<NewPgsqlConnection> {
                 label: "Password :",
                 preLabel: "Related password for user",
                 validator: (value) {
-                  return errorType.checkInput(value);
+                  return errorType.checkDB(value);
                 },
                 onSaved: (value) {
                   setState(() {

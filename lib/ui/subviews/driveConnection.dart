@@ -22,7 +22,7 @@ class _NewDriveConnectionState extends State<NewDriveConnection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsetsDirectional.symmetric(horizontal: 20),
+      margin: const EdgeInsetsDirectional.symmetric(horizontal: 20),
       child: Form(
         key: _formKey,
         child: Column(
@@ -38,7 +38,7 @@ class _NewDriveConnectionState extends State<NewDriveConnection> {
               label: "Gmail Adress :",
               preLabel: "Enter your Gmail Adress :",
               validator: (value) {
-                return errorType.checkInput(value);
+                return errorType.checkMailAdress(value);
               },
               onSaved: (value) {
                 setState(() {
@@ -47,7 +47,7 @@ class _NewDriveConnectionState extends State<NewDriveConnection> {
               },
             ),
             Container(
-                margin: EdgeInsets.only(left: 500, top: 10), // temporary
+                margin: const EdgeInsets.only(left: 500, top: 10), // temporary
                 child: ElevatedButton(
                   onPressed: () {
                     //save variable in object and database

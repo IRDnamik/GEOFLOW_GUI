@@ -3,21 +3,13 @@ import 'package:geoflow_gui/model/dbsettings.dart';
 
 import '../color.dart';
 
-class SavedDriveConnection extends StatefulWidget {
-  const SavedDriveConnection({super.key});
-
-  @override
-  State<SavedDriveConnection> createState() => _SavedDriveConnectionState();
-}
-
-class _SavedDriveConnectionState extends State<SavedDriveConnection> {
-  // get list of google drive adresses saved
-  final List<GdriveSetting> googleMail = [
-    GdriveSetting("namik.scherzl@gmail.com"),
-    GdriveSetting("namik.scherzl@gmail.com"),
-    GdriveSetting("namik.scherzl@gmail.com")
+class SavedPgsqlConnection extends StatelessWidget {
+  final List<DbSetting> databaseName = [
+    DbSetting(databaseName: "MyDB", port: 4321, host: 'localhost', dbuser: "postgres", password: "123456"),
+    DbSetting(databaseName: "MyDB1", port: 4321, host: 'localhost', dbuser: "postgres", password: "123456"),
+    DbSetting(databaseName: "MyDB2", port: 4321, host: 'localhost', dbuser: "postgres", password: "123456"),
+    DbSetting(databaseName: "MyDB3", port: 4321, host: 'localhost', dbuser: "postgres", password: "123456"),
   ];
-  // querying local db to retrieve adresses
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +18,9 @@ class _SavedDriveConnectionState extends State<SavedDriveConnection> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 200),
           child: SizedBox(
-            height: 50.0 * googleMail.length,
+            height: 50.0 * databaseName.length,
             child: ListView.builder(
-              itemCount: googleMail.length,
+              itemCount: databaseName.length,
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 2),
@@ -40,15 +32,15 @@ class _SavedDriveConnectionState extends State<SavedDriveConnection> {
                     ),
                     child: Row(
                       children: [
-                        const Icon(Icons.add_to_drive),
+                        const Icon(Icons.storage),
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Text(googleMail[index].email),
+                          child: Text(databaseName[index].databaseName),
                         ),
                       ],
                     ),
                     onPressed: () {
-                      // set data source to google drive and quit dialog
+                      // set data source  as PGSQL and quit dialog
                     },
                   ),
                 );

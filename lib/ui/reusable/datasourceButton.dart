@@ -13,7 +13,6 @@ class DatasourceButton extends StatelessWidget {
     required this.picture,
     required this.size,
     required this.buttonLabel,
-    super.key,
   });
 
   @override
@@ -29,13 +28,20 @@ class DatasourceButton extends StatelessWidget {
             case "Google Drive":
               // redirect to google view settings
               showDialog(
-                  context: context, builder: (BuildContext context) => const ConnectionSettingsView("Google Drive"));
+                  context: context,
+                  builder: (BuildContext context) => ConnectionSettingsView(
+                        "Google Drive",
+                        key: UniqueKey(),
+                      ));
               break;
             case "Posgresql \nDatabase":
               // redirect to db settings view
               showDialog(
                   context: context,
-                  builder: (BuildContext context) => const ConnectionSettingsView("Posgresql \nDatabase"));
+                  builder: (BuildContext context) => ConnectionSettingsView(
+                        "Posgresql \nDatabase",
+                        key: UniqueKey(),
+                      ));
               break;
           }
         }, // redirect  to pick directory
