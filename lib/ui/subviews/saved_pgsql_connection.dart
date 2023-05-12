@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geoflow_gui/model/dbsettings.dart';
 
-import '../color.dart';
-
 class SavedPgsqlConnection extends StatelessWidget {
   final List<DbSetting> databaseName = [
     DbSetting(databaseName: "MyDB", port: 4321, host: 'localhost', dbuser: "postgres", password: "123456"),
@@ -10,6 +8,8 @@ class SavedPgsqlConnection extends StatelessWidget {
     DbSetting(databaseName: "MyDB2", port: 4321, host: 'localhost', dbuser: "postgres", password: "123456"),
     DbSetting(databaseName: "MyDB3", port: 4321, host: 'localhost', dbuser: "postgres", password: "123456"),
   ];
+
+  SavedPgsqlConnection({super.key});
 
   @override
   Widget build(BuildContext context) {

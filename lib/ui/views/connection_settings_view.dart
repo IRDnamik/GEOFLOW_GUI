@@ -69,10 +69,10 @@
 // }
 import 'package:flutter/material.dart';
 import '../color.dart';
-import '../subviews/driveConnection.dart';
-import '../subviews/pgsqlConnection.dart';
-import '../subviews/savedDriveConnection.dart';
-import '../subviews/savedPgsqlConnection.dart';
+import '../subviews/drive_connection.dart';
+import '../subviews/pgsql_connection.dart';
+import '../subviews/saved_drive_connection.dart';
+import '../subviews/saved_pgsql_connection.dart';
 
 class ConnectionSettingsView extends StatefulWidget {
   final String dataSource;

@@ -24,7 +24,7 @@ class _NewPgsqlConnectionState extends State<NewPgsqlConnection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsetsDirectional.symmetric(horizontal: 20),
+      margin: const EdgeInsetsDirectional.symmetric(horizontal: 20),
       child: Form(
         key: _formKey,
         child: Column(
