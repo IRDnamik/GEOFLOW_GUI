@@ -38,6 +38,7 @@ dependencies:
   flow_graph: ^0.0.9
   file_picker: ^5.2.11
   archive: ^3.3.7
+  sqflite: ^2.2.8+2
 
 dev_dependencies:
   flutter_test:
