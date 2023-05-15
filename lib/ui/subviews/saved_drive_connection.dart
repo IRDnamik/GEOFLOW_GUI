@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geoflow_gui/model/dbsettings.dart';
 
-import '../color.dart';
-
 class SavedDriveConnection extends StatefulWidget {
   const SavedDriveConnection({super.key});
 

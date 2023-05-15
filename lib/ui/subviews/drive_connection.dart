@@ -1,9 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:geoflow_gui/extension/string.dart';
-import 'package:geoflow_gui/model/dbsettings.dart';
 import 'package:geoflow_gui/ui/color.dart';
-
 import '../reusable/customForm.dart';
 import '../reusable/errortype.dart';
 

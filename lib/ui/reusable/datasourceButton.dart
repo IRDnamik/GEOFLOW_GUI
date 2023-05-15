@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geoflow_gui/extension/string.dart';
 import 'package:geoflow_gui/services/process.dart';
 
-import '../views/connectionSettings_view.dart';
+import '../views/connection_settings_view.dart';
 
 class DatasourceButton extends StatelessWidget {
   final String picture;
