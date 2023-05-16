@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geoflow_gui/model/dbsettings.dart';
+import 'package:geoflow_gui/services/process.dart';
 
 class SavedDriveConnection extends StatefulWidget {
   const SavedDriveConnection({super.key});
@@ -10,11 +11,13 @@ class SavedDriveConnection extends StatefulWidget {
 
 class _SavedDriveConnectionState extends State<SavedDriveConnection> {
   // get list of google drive adresses saved
-  final List<GdriveSetting> googleMail = [
-    GdriveSetting("namik.scherzl@gmail.com"),
-    GdriveSetting("namik.scherzl@gmail.com"),
-    GdriveSetting("namik.scherzl@gmail.com")
-  ];
+  // final List<GdriveSetting> googleMail = [
+  //   GdriveSetting("namik.scherzl@gmail.com"),
+  //   GdriveSetting("namik.scherzl@gmail.com"),
+  //   GdriveSetting("namik.scherzl@gmail.com")
+  // ];
+  Process _controller = Process();
+
   // querying local db to retrieve adresses
 
   @override
@@ -24,9 +27,9 @@ class _SavedDriveConnectionState extends State<SavedDriveConnection> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 200),
           child: SizedBox(
-            height: 50.0 * googleMail.length,
+            height: 50.0 * _controller.gDriveConnections.length,
             child: ListView.builder(
-              itemCount: googleMail.length,
+              itemCount: _controller.gDriveConnections.length,
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 2),
@@ -41,7 +44,7 @@ class _SavedDriveConnectionState extends State<SavedDriveConnection> {
                         const Icon(Icons.add_to_drive),
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Text(googleMail[index].email),
+                          child: Text(_controller.gDriveConnections[index].email),
                         ),
                       ],
                     ),

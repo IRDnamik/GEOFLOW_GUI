@@ -1,5 +1,7 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:geoflow_gui/model/dbsettings.dart';
+import 'package:geoflow_gui/services/process.dart';
 import 'package:geoflow_gui/ui/color.dart';
 import '../reusable/customForm.dart';
 import '../reusable/errortype.dart';
@@ -13,8 +15,8 @@ class NewDriveConnection extends StatefulWidget {
 
 class _NewDriveConnectionState extends State<NewDriveConnection> {
   final _formKey = GlobalKey<FormState>();
-  String? _email;
   final errorType = ErrorType();
+  Process _controller = Process();
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +40,10 @@ class _NewDriveConnectionState extends State<NewDriveConnection> {
                 return errorType.checkMailAdress(value);
               },
               onSaved: (value) {
-                setState(() {
-                  _email = value;
-                });
+                if (value != null) {
+                  _controller.addNewConnection(GdriveSetting(value));
+                  setState(() {});
+                }
               },
             ),
             Container(
@@ -50,7 +53,6 @@ class _NewDriveConnectionState extends State<NewDriveConnection> {
                     //save variable in object and database
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                      print(_email);
                     }
                   },
                   child: const Text('Add'),

@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart';
-
 import '../model/dbsettings.dart';
+import 'dart:async';
 
 class DatabaseManager {
   static final DatabaseManager instance = DatabaseManager._privateConstructor();
@@ -65,25 +65,24 @@ class DatabaseManager {
       );
     }
   }
-}
 
-// Delete  connections
-Future<void> deleteConnection(DbSetting? dbsetting, GdriveSetting? gdrive, Database database) async {
-  final db = database;
+// Delete  connection
+  Future<void> deleteConnection(DbSetting? dbsetting, GdriveSetting? gdrive, Database database) async {
+    final db = database;
 
-  if (dbsetting != null) {
-    // Supprimer la ligne correspondant à dbsetting.databaseName dans la table 'dbsettings'
-    await db.delete(
-      'dbsettings',
-      where: 'databaseName = ?',
-      whereArgs: [dbsetting.databaseName],
-    );
-  } else if (gdrive != null) {
-    // Supprimer la ligne correspondant à gdrive.email dans la table 'gdrive'
-    await db.delete(
-      'gdrive',
-      where: 'email = ?',
-      whereArgs: [gdrive.email],
-    );
+    if (dbsetting != null) {
+      //delete row in database corresponding to dbsetting.databaseName
+      await db.delete(
+        'dbsettings',
+        where: 'databaseName = ?',
+        whereArgs: [dbsetting.databaseName],
+      ); //delete row in database corresponding to gdrive.email given in parameter
+    } else if (gdrive != null) {
+      await db.delete(
+        'gdrive',
+        where: 'email = ?',
+        whereArgs: [gdrive.email],
+      );
+    }
   }
 }
